@@ -1,1 +1,1552 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Жалпы химия | Бірімжанов бойынша КТ дайындық</title>
 
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #6b7280;
+      --blue: #2563eb;
+      --blue2: #1d4ed8;
+      --green: #16a34a;
+      --red: #dc2626;
+      --yellow: #f59e0b;
+      --purple: #7c3aed;
+      --border: #dbe3ef;
+      --soft: #eef4ff;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.13), transparent 35%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.12), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 34px 18px 24px;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a 58%, #4c1d95);
+      border-radius: 32px;
+      color: white;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "H₂O  NaCl  ΔG  pH  C₆H₆  Kc";
+      position: absolute;
+      right: -30px;
+      bottom: 10px;
+      font-size: 54px;
+      font-weight: 900;
+      opacity: 0.08;
+      letter-spacing: 4px;
+      transform: rotate(-8deg);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #e0ecff;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #dbeafe;
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .hero-grid {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 2px;
+    }
+
+    .hero-stat span {
+      color: #c7d2fe;
+      font-size: 13px;
+    }
+
+    .telegram-ad {
+      margin-top: 26px;
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 24px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .telegram-ad h2 {
+      margin: 0 0 8px;
+      color: #ffffff;
+      font-size: 26px;
+    }
+
+    .telegram-ad p {
+      margin: 0 0 8px;
+      color: #dbeafe;
+    }
+
+    .telegram-warning {
+      color: #fee2e2 !important;
+      font-weight: 700;
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: #ffffff;
+      color: #1e3a8a;
+      font-weight: 900;
+      border-radius: 18px;
+      padding: 15px 20px;
+      white-space: nowrap;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      transition: 0.2s;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      background: #dbeafe;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(244, 247, 251, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 18px;
+    }
+
+    .nav-inner a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: #334155;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav-inner a:hover {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 70px;
+    }
+
+    section {
+      margin: 26px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 36px);
+      letter-spacing: -0.7px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 5px 0 0;
+      font-size: 15px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .topic-card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .topic-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background: var(--soft);
+      color: #1e40af;
+      border: 1px solid #c7d2fe;
+      font-weight: 650;
+    }
+
+    .formula-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      overflow-x: auto;
+    }
+
+    .formula-box div {
+      margin: 7px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .test-panel {
+      position: sticky;
+      top: 62px;
+      z-index: 15;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .progress {
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      transition: 0.25s;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-weight: 750;
+      transition: 0.2s;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue2);
+    }
+
+    .btn-soft {
+      background: #e0ecff;
+      color: #1e40af;
+    }
+
+    .btn-soft:hover {
+      background: #c7d2fe;
+    }
+
+    .btn-danger {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .btn-danger:hover {
+      background: #fecaca;
+    }
+
+    .question {
+      margin-bottom: 16px;
+      border-left: 6px solid #c7d2fe;
+    }
+
+    .q-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .q-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .level {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .level-A {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .level-B {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .level-C {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .section-pill {
+      background: #ede9fe;
+      color: #5b21b6;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .q-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    label.option {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fbfdff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    label.option:hover {
+      border-color: #93c5fd;
+      background: #eff6ff;
+    }
+
+    label.option input {
+      margin-top: 5px;
+    }
+
+    label.option.correct {
+      border-color: rgba(22, 163, 74, 0.5);
+      background: #ecfdf5;
+    }
+
+    label.option.wrong {
+      border-color: rgba(220, 38, 38, 0.45);
+      background: #fef2f2;
+    }
+
+    .explanation {
+      display: none;
+      margin-top: 14px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      padding: 14px;
+      border-radius: 16px;
+      color: #334155;
+    }
+
+    .explanation.show {
+      display: block;
+    }
+
+    .result-box {
+      display: none;
+      margin-bottom: 20px;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ecfeff, #eff6ff);
+      border: 1px solid #bfdbfe;
+      box-shadow: var(--shadow);
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .score {
+      font-size: 42px;
+      font-weight: 950;
+      letter-spacing: -1px;
+      margin: 0 0 4px;
+      color: #1e3a8a;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 15px 18px;
+      background: white;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 850;
+      color: #1e3a8a;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 18px 50px;
+    }
+
+    footer a {
+      color: #2563eb;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .test-panel {
+        position: static;
+        grid-template-columns: 1fr;
+      }
+
+      .q-top {
+        flex-direction: column;
+      }
+
+      .q-meta {
+        justify-content: flex-start;
+      }
+
+      .telegram-ad {
+        grid-template-columns: 1fr;
+      }
+
+      .telegram-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="hero">
+      <div class="badge">🧪 Магистратураға түсуге арналған КТ дайындық</div>
+
+      <h1>Жалпы химия<br>Бірімжанов бойынша</h1>
+
+      <p>
+        Бұл сайт химия пәнінен кешенді тестілеуге дайындалуға арналған.
+        Материал жалпы химия, бейорганикалық химия, органикалық химия,
+        физикалық және аналитикалық химия бөлімдерін қамтиды.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-stat">
+          <strong>30</strong>
+          <span>тест тапсырмасы</span>
+        </div>
+
+        <div class="hero-stat">
+          <strong>6</strong>
+          <span>негізгі бөлім</span>
+        </div>
+
+        <div class="hero-stat">
+          <strong>60 мин</strong>
+          <span>ұсынылатын уақыт</span>
+        </div>
+
+        <div class="hero-stat">
+          <strong>A/B/C</strong>
+          <span>қиындық деңгейлері</span>
+        </div>
+      </div>
+
+      <div class="telegram-ad">
+        <div>
+          <h2>📢 Бұл сайт тегін!</h2>
+
+          <p>
+            Химиядан КТ-ға дайындалуға арналған бұл материал тегін ұсынылады.
+            Сайтты, тесттерді немесе кодты сатуға болмайды.
+          </p>
+
+          <p class="telegram-warning">
+            ⚠️ Бұл сайт тек дайындық және оқу мақсатында жасалған. Автордың рұқсатынсыз
+            коммерциялық мақсатта қолдануға, қайта сатуға немесе ақылы курс ретінде ұсынуға тыйым салынады.
+          </p>
+        </div>
+
+        <a class="telegram-btn" href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">
+          Telegram-каналға өту
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#structure">Құрылым</a>
+      <a href="#summary">Қысқаша конспект</a>
+      <a href="#formulas">Формулалар</a>
+      <a href="#terms">Терминдер</a>
+      <a href="#test">Тест</a>
+      <a href="#answers">Дайындық кеңесі</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="structure">
+      <div class="section-title">
+        <div>
+          <h2>КТ құрылымы</h2>
+          <p class="subtitle">Ресми спецификацияға жақын формат</p>
+        </div>
+      </div>
+
+      <div class="card table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Бөлім</th>
+              <th>Мазмұны</th>
+              <th>Сұрақ саны</th>
+              <th>Деңгей</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Бейорганикалық химия</td>
+              <td>Стехиометриялық заңдар, атом құрылысы, байланыс, реакциялар</td>
+              <td>6</td>
+              <td>A/B/C</td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>Периодтық жүйедегі элементтер химиясы</td>
+              <td>Элементтер мен олардың қосылыстарының қасиеттері</td>
+              <td>6</td>
+              <td>A/B/C</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Алифатты органикалық қосылыстар</td>
+              <td>Алкандар, алкендер, спирттер, қышқылдар, карбкатиондар</td>
+              <td>5</td>
+              <td>A/B/C</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>Циклді органикалық қосылыстар</td>
+              <td>Ароматты, гомоциклді және гетероциклді қосылыстар</td>
+              <td>5</td>
+              <td>A/B/C</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>Физикалық химия</td>
+              <td>Термодинамика, кинетика, тепе-теңдік</td>
+              <td>4</td>
+              <td>A/B/C</td>
+            </tr>
+
+            <tr>
+              <td>6</td>
+              <td>Аналитикалық химия</td>
+              <td>Сапалық және сандық анализ, pH, титрлеу</td>
+              <td>4</td>
+              <td>A/B/C</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="summary">
+      <div class="section-title">
+        <div>
+          <h2>Қысқаша конспект</h2>
+          <p class="subtitle">Ең жиі кездесетін теориялық тіректер</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card topic-card">
+          <h3>1. Зат және химиялық құбылыс</h3>
+          <p>
+            Химия заттардың құрамын, құрылысын, қасиеттерін және олардың
+            өзгеру заңдылықтарын зерттейді. Химиялық құбылыс кезінде жаңа заттар түзіледі.
+          </p>
+          <div class="tag-row">
+            <span class="tag">зат</span>
+            <span class="tag">реакция</span>
+            <span class="tag">қасиет</span>
+          </div>
+        </div>
+
+        <div class="card topic-card">
+          <h3>2. Стехиометрия</h3>
+          <p>
+            Реакция теңдеуі бойынша зат мөлшері, масса, көлем және молекула саны арасындағы
+            байланыс есептеледі. Негізгі өлшем — моль.
+          </p>
+          <div class="tag-row">
+            <span class="tag">моль</span>
+            <span class="tag">масса</span>
+            <span class="tag">Авогадро</span>
+          </div>
+        </div>
+
+        <div class="card topic-card">
+          <h3>3. Химиялық байланыс</h3>
+          <p>
+            Иондық, коваленттік және металдық байланыстар заттың құрылымы мен қасиетін
+            анықтайды. Су молекуласының пішіні — бұрышты.
+          </p>
+          <div class="tag-row">
+            <span class="tag">иондық</span>
+            <span class="tag">коваленттік</span>
+            <span class="tag">геометрия</span>
+          </div>
+        </div>
+
+        <div class="card topic-card">
+          <h3>4. Органикалық химия</h3>
+          <p>
+            Көміртек қосылыстарының құрылысы, изомериясы, функционалдық топтары және
+            реакция механизмдері органикалық химияның негізін құрайды.
+          </p>
+          <div class="tag-row">
+            <span class="tag">алкандар</span>
+            <span class="tag">спирттер</span>
+            <span class="tag">қышқылдар</span>
+          </div>
+        </div>
+
+        <div class="card topic-card">
+          <h3>5. Физикалық химия</h3>
+          <p>
+            Химиялық процестің жүру бағыты термодинамикамен, жылдамдығы кинетикамен,
+            ал соңғы күйі химиялық тепе-теңдікпен түсіндіріледі.
+          </p>
+          <div class="tag-row">
+            <span class="tag">энтальпия</span>
+            <span class="tag">энтропия</span>
+            <span class="tag">тепе-теңдік</span>
+          </div>
+        </div>
+
+        <div class="card topic-card">
+          <h3>6. Аналитикалық химия</h3>
+          <p>
+            Заттардың сапалық және сандық құрамын анықтайды. Негізгі тақырыптар:
+            pH, титрлеу, эквиваленттік нүкте, индикаторлар.
+          </p>
+          <div class="tag-row">
+            <span class="tag">pH</span>
+            <span class="tag">титрлеу</span>
+            <span class="tag">анализ</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formulas">
+      <div class="section-title">
+        <div>
+          <h2>Негізгі формулалар</h2>
+          <p class="subtitle">Есептерде жиі қолданылатын формулалар</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Стехиометрия және ерітінділер</h3>
+          <div class="formula-box">
+            <div>n = m / M</div>
+            <div>N = n · N<sub>A</sub></div>
+            <div>ω = m(зат) / m(ерітінді) · 100%</div>
+            <div>C = n / V</div>
+            <div>m(зат) = ω · m(ерітінді) / 100%</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Физикалық және аналитикалық химия</h3>
+          <div class="formula-box">
+            <div>pH = -lg[H⁺]</div>
+            <div>pOH = -lg[OH⁻]</div>
+            <div>pH + pOH = 14</div>
+            <div>Kc = [өнімдер] / [реагенттер]</div>
+            <div>ΔG = ΔH - TΔS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms">
+      <div class="section-title">
+        <div>
+          <h2>Терминдер</h2>
+          <p class="subtitle">Тест алдында міндетті түрде қайталау керек</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <details open>
+          <summary>Амфотерлік қасиет</summary>
+          <p>
+            Заттың әрі қышқылдық, әрі негіздік қасиет көрсетуі. Мысалы:
+            Al(OH)₃, Zn(OH)₂, Be(OH)₂ амфотерлі гидроксидтерге жатады.
+          </p>
+        </details>
+
+        <details>
+          <summary>Карбкатион тұрақтылығы</summary>
+          <p>
+            Оң зарядталған көміртек атомына қосылған алкил радикалдары көп болған сайын
+            карбкатион тұрақтырақ болады: үшіншілік &gt; екіншілік &gt; біріншілік &gt; метил.
+          </p>
+        </details>
+
+        <details>
+          <summary>Гетероциклді қосылыстар</summary>
+          <p>
+            Сақина құрамында көміртектен басқа атомдар, мысалы N, O, S болатын циклді
+            органикалық қосылыстар.
+          </p>
+        </details>
+
+        <details>
+          <summary>Эквиваленттік нүкте</summary>
+          <p>
+            Титрлеу кезінде әрекеттесетін заттар стехиометриялық қатынаста толық
+            әрекеттескен нүкте. pH титрленетін зат пен титранттың табиғатына тәуелді.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="section-title">
+        <div>
+          <h2>КТ форматына жақын тест</h2>
+          <p class="subtitle">30 сұрақ, 5 жауап нұсқасы, 1 дұрыс жауап</p>
+        </div>
+      </div>
+
+      <div class="test-panel">
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span>Жауап берілгені: <b id="answeredCount">0</b>/30</span>
+            <span id="timeText">Ұсынылатын уақыт: 60 минут</span>
+          </div>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+
+        <button class="btn-primary" onclick="checkTest()">Тексеру</button>
+        <button class="btn-soft" onclick="showOnlyMistakes()">Қателерді көрсету</button>
+        <button class="btn-danger" onclick="resetTest()">Қайта бастау</button>
+      </div>
+
+      <div id="resultBox" class="result-box"></div>
+      <div id="questions"></div>
+    </section>
+
+    <section id="answers">
+      <div class="section-title">
+        <div>
+          <h2>Дайындық кеңесі</h2>
+          <p class="subtitle">Қалай тиімді қайталау керек?</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>
+          Бірінші кезекте теорияны емес, <b>тақырып + формула + типтік сұрақ</b> байланысын
+          жатта. Мысалы, “массалық үлес” тақырыбын оқығанда бірден ерітінді массасын,
+          еріген зат массасын және пайызды есептеп үйрен.
+        </p>
+
+        <p>
+          Қате шыққан сұрақтарды бөлек жазып ал. Әсіресе амфотерлік қасиет, электролиз,
+          карбкатион тұрақтылығы, pH, термодинамикалық параметрлер және циклді қосылыстар
+          жиі шатастырылады.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Бұл сайт тегін оқу материалы ретінде жасалған. Сатуға және коммерциялық мақсатта таратуға болмайды.
+    <br>
+    Telegram: <a href="https://t.me/+8SolEPgN4Is0MTMy" target="_blank">каналға өту</a>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        section: "Бейорганикалық химия",
+        level: "A",
+        text: "Амфотерлі элементтер жұбы қайсысы?",
+        options: [
+          "Na және K",
+          "Al және Zn",
+          "Cl және Br",
+          "S және O",
+          "Ca және Ba"
+        ],
+        answer: 1,
+        explanation: "Al және Zn қосылыстары, әсіресе Al(OH)₃ және Zn(OH)₂, қышқылдармен де, сілтілермен де әрекеттесетін амфотерлі қасиет көрсетеді."
+      },
+      {
+        section: "Бейорганикалық химия",
+        level: "B",
+        text: "Калий хлоридінің сулы ерітіндісін электролиздегенде катодта қандай зат бөлінеді?",
+        options: [
+          "Калий металы",
+          "Хлор газы",
+          "Сутек газы",
+          "Оттек газы",
+          "Калий оксиді"
+        ],
+        answer: 2,
+        explanation: "KCl сулы ерітіндісінде катодта су молекулалары тотықсызданып, сутек газы бөлінеді. Калий металы су ерітіндісінде бөлінбейді."
+      },
+      {
+        section: "Бейорганикалық химия",
+        level: "A",
+        text: "Су молекуласының кеңістіктегі пішіні қандай?",
+        options: [
+          "Тетраэдр",
+          "Үшбұрышты жазық",
+          "Сызықтық",
+          "Пирамидалық",
+          "Бұрышты"
+        ],
+        answer: 4,
+        explanation: "H₂O молекуласында оттек атомында екі байланыс жұбы және екі бос электрон жұбы бар, сондықтан молекула пішіні бұрышты болады."
+      },
+      {
+        section: "Бейорганикалық химия",
+        level: "B",
+        text: "0,5 моль CO₂ құрамындағы молекула саны қанша?",
+        options: [
+          "3,01 · 10²³",
+          "6,02 · 10²³",
+          "1,204 · 10²⁴",
+          "0,5 · 10²³",
+          "12,04 · 10²³"
+        ],
+        answer: 0,
+        explanation: "N = n · NA. 0,5 моль · 6,02 · 10²³ = 3,01 · 10²³ молекула."
+      },
+      {
+        section: "Бейорганикалық химия",
+        level: "C",
+        text: "Қай тұжырым химиялық байланыстың табиғатын дұрыс сипаттайды?",
+        options: [
+          "Иондық байланыс тек бейметалдар арасында түзіледі",
+          "Коваленттік байланыс электрон жұбының ортақтасуы арқылы түзіледі",
+          "Металдық байланыста атомдар толық молекула түзеді",
+          "Сутектік байланыс әрқашан ең берік химиялық байланыс",
+          "Полюссіз байланыс тек иондар арасында болады"
+        ],
+        answer: 1,
+        explanation: "Коваленттік байланыс атомдардың ортақ электрон жұбын түзуі арқылы пайда болады."
+      },
+      {
+        section: "Бейорганикалық химия",
+        level: "C",
+        text: "Реакция теңдеуіндегі коэффициенттердің негізгі мағынасы қандай?",
+        options: [
+          "Заттардың түсін көрсетеді",
+          "Реакция жылдамдығын ғана анықтайды",
+          "Реакцияға қатысатын заттардың мольдік қатынасын көрсетеді",
+          "Температураны көрсетеді",
+          "Катализатор мөлшерін ғана көрсетеді"
+        ],
+        answer: 2,
+        explanation: "Коэффициенттер заттардың стехиометриялық, яғни мольдік қатынасын көрсетеді."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "A",
+        text: "Период бойынша солдан оңға қарай атом радиусы қалай өзгереді?",
+        options: [
+          "Артады",
+          "Кемиді",
+          "Өзгермейді",
+          "Алдымен артып, кейін кемиді",
+          "Тек металдарда ғана артады"
+        ],
+        answer: 1,
+        explanation: "Период бойымен ядро заряды артады, электрондар ядроға күштірек тартылады, сондықтан атом радиусы кемиді."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "B",
+        text: "Сілтілік металдардың сумен әрекеттесуі нәтижесінде қандай заттар түзіледі?",
+        options: [
+          "Металл оксиді және сутек",
+          "Металл гидроксиді және сутек",
+          "Металл хлориді және су",
+          "Қышқыл және сутек",
+          "Тұз және оттек"
+        ],
+        answer: 1,
+        explanation: "Мысалы: 2Na + 2H₂O → 2NaOH + H₂. Сілтілік металл гидроксиді және сутек түзіледі."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "B",
+        text: "Галогендердің сыртқы энергетикалық деңгейінде неше электрон болады?",
+        options: [
+          "1",
+          "2",
+          "5",
+          "7",
+          "8"
+        ],
+        answer: 3,
+        explanation: "Галогендер VIIA топта орналасқан, сыртқы қабатында 7 валенттік электрон бар."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "A",
+        text: "Кальций қай топ элементіне жатады?",
+        options: [
+          "Сілтілік металл",
+          "Сілтілік-жер металы",
+          "Галоген",
+          "Инертті газ",
+          "Халькоген"
+        ],
+        answer: 1,
+        explanation: "Кальций II топта орналасқан, сілтілік-жер металдарына жатады."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "C",
+        text: "Алюминийдің амфотерлігін дәлелдейтін реакция жұбы қайсысы?",
+        options: [
+          "Al + O₂ және Al + Cl₂",
+          "Al₂O₃ + HCl және Al₂O₃ + NaOH",
+          "Al + Fe₂O₃ және Al + S",
+          "AlCl₃ + AgNO₃ және Al + I₂",
+          "Al + H₂O және Al + N₂"
+        ],
+        answer: 1,
+        explanation: "Al₂O₃ қышқылмен де, сілтімен де әрекеттеседі. Бұл оның амфотерлігін көрсетеді."
+      },
+      {
+        section: "Элементтер химиясы",
+        level: "C",
+        text: "Қай элементтің электртерістілігі ең жоғары?",
+        options: [
+          "Натрий",
+          "Магний",
+          "Көміртек",
+          "Оттек",
+          "Фтор"
+        ],
+        answer: 4,
+        explanation: "Фтор — периодтық жүйедегі электртерістілігі ең жоғары элемент."
+      },
+      {
+        section: "Алифатты органикалық химия",
+        level: "A",
+        text: "Бутан қышқылының дұрыс құрылымдық формуласы қайсысы?",
+        options: [
+          "CH₃–CH₂–CH₂–COOH",
+          "CH₃–CH₂–COOH",
+          "CH₃–COOH",
+          "CH₃–CH₂–CH₂–OH",
+          "CH₃–CH₂–CHO"
+        ],
+        answer: 0,
+        explanation: "Бутан қышқылында 4 көміртек атомы бар: CH₃–CH₂–CH₂–COOH."
+      },
+      {
+        section: "Алифатты органикалық химия",
+        level: "B",
+        text: "Карбкатион тұрақтылығының дұрыс қатары қандай?",
+        options: [
+          "Үшіншілік = екіншілік = біріншілік > метил",
+          "Үшіншілік < екіншілік < біріншілік < метил",
+          "Үшіншілік > екіншілік > біріншілік > метил",
+          "Метил > біріншілік > екіншілік > үшіншілік",
+          "Екіншілік > үшіншілік > метил > біріншілік"
+        ],
+        answer: 2,
+        explanation: "Алкил радикалдары оң зарядты тұрақтандырады, сондықтан тұрақтылық: 3° > 2° > 1° > CH₃⁺."
+      },
+      {
+        section: "Алифатты органикалық химия",
+        level: "B",
+        text: "Алкендерге тән негізгі реакция түрі қандай?",
+        options: [
+          "Орынбасу",
+          "Қосылу",
+          "Айырылу ғана",
+          "Нейтралдану",
+          "Тұнба түзілу"
+        ],
+        answer: 1,
+        explanation: "Алкендерде қос байланыс бар, сондықтан олар үшін қосылу реакциялары тән."
+      },
+      {
+        section: "Алифатты органикалық химия",
+        level: "C",
+        text: "Пропенге HBr қосылғанда Марковников ережесі бойынша негізгі өнім қандай?",
+        options: [
+          "1-бромпропан",
+          "2-бромпропан",
+          "Пропанол-1",
+          "Пропан қышқылы",
+          "Циклопропан"
+        ],
+        answer: 1,
+        explanation: "H атомы сутегі көп көміртекке, Br сутегі аз көміртекке қосылады. Негізгі өнім — 2-бромпропан."
+      },
+      {
+        section: "Алифатты органикалық химия",
+        level: "C",
+        text: "Этанолдың жұмсақ тотығуы нәтижесінде алдымен қандай қосылыс түзіледі?",
+        options: [
+          "Этан",
+          "Этен",
+          "Этаналь",
+          "Этан қышқылы",
+          "Диэтил эфирі"
+        ],
+        answer: 2,
+        explanation: "Біріншілік спирттер жұмсақ тотыққанда альдегидтер түзіледі. Этанол → этаналь."
+      },
+      {
+        section: "Циклді органикалық химия",
+        level: "B",
+        text: "Фридель-Крафтс реакциясында бензол мен пропанол-2 қатысқан жағдайда субстрат қайсысы?",
+        options: [
+          "Бензол",
+          "Пропанол-2",
+          "Су",
+          "Пропилбензол",
+          "Изопропилбензол"
+        ],
+        answer: 0,
+        explanation: "Фридель-Крафтс алкилдеуінде ароматты сақина, яғни бензол, субстрат ретінде қарастырылады."
+      },
+      {
+        section: "Циклді органикалық химия",
+        level: "A",
+        text: "Құрамында көміртегінен басқа элемент атомдары бар сақиналы қосылыстар қалай аталады?",
+        options: [
+          "Гомоциклді қосылыстар",
+          "Гетероциклді қосылыстар",
+          "Ациклді қосылыстар",
+          "Ашық тізбекті қосылыстар",
+          "Алифатты қосылыстар"
+        ],
+        answer: 1,
+        explanation: "Сақинада C атомынан басқа N, O, S сияқты атомдар болса, олар гетероциклді қосылыстар деп аталады."
+      },
+      {
+        section: "Циклді органикалық химия",
+        level: "B",
+        text: "Бензол үшін ең тән реакция түрі қандай?",
+        options: [
+          "Электрофильді орынбасу",
+          "Радикалдық полимерлену",
+          "Гидролиз",
+          "Нейтралдану",
+          "Тек қосылу"
+        ],
+        answer: 0,
+        explanation: "Бензол ароматты тұрақты жүйе болғандықтан, оған электрофильді орынбасу реакциялары тән."
+      },
+      {
+        section: "Циклді органикалық химия",
+        level: "C",
+        text: "Ароматтылықтың негізгі белгісі қайсысы?",
+        options: [
+          "Тек дара байланыстардың болуы",
+          "Жазық циклді жүйеде делокалданған π-электрондардың болуы",
+          "Молекулада тек көміртек пен сутектің болуы",
+          "Молекуланың суда жақсы еруі",
+          "Қаныққан байланыстардың болуы"
+        ],
+        answer: 1,
+        explanation: "Ароматты жүйеде жазық сақина және делокалданған π-электрондар болуы керек."
+      },
+      {
+        section: "Циклді органикалық химия",
+        level: "C",
+        text: "Толуолдың нитрленуі кезінде негізгі бағыттаушы әсер қандай?",
+        options: [
+          "Метил тобы meta-бағыттайды",
+          "Метил тобы ortho- және para-бағыттайды",
+          "Метил тобы реакцияны толық тоқтатады",
+          "Нитро топ тек ipso-орынға түседі",
+          "Бағытталу болмайды"
+        ],
+        answer: 1,
+        explanation: "Метил тобы электрон беруші орынбасар, сондықтан ол электрофильді орынбасуды ortho және para орындарға бағыттайды."
+      },
+      {
+        section: "Физикалық химия",
+        level: "A",
+        text: "Күйдің термодинамикалық параметрі болып саналмайтын шама қайсысы?",
+        options: [
+          "Энтальпия",
+          "Толқын ұзындығы",
+          "Қысым",
+          "Температура",
+          "Энтропия"
+        ],
+        answer: 1,
+        explanation: "Қысым, температура, энтальпия, энтропия термодинамикада қолданылады. Толқын ұзындығы термодинамикалық күй параметрі емес."
+      },
+      {
+        section: "Физикалық химия",
+        level: "B",
+        text: "Температураны арттырғанда көптеген реакциялардың жылдамдығы неге өседі?",
+        options: [
+          "Молекула массасы азаяды",
+          "Белсенді соқтығысулар саны артады",
+          "Катализатор міндетті түрде түзіледі",
+          "Реакция теңдеуі өзгереді",
+          "Өнімдер жойылады"
+        ],
+        answer: 1,
+        explanation: "Температура артқанда бөлшектердің кинетикалық энергиясы өсіп, белсенді соқтығысулар саны көбейеді."
+      },
+      {
+        section: "Физикалық химия",
+        level: "B",
+        text: "Ле Шателье принципі нені сипаттайды?",
+        options: [
+          "Атом массасын анықтауды",
+          "Тепе-теңдікке сыртқы әсер еткенде жүйенің сол әсерді әлсірету бағытына ығысуын",
+          "Электрондардың орбитальға толуын",
+          "pH мәнін ғана",
+          "Органикалық заттардың жануын"
+        ],
+        answer: 1,
+        explanation: "Ле Шателье принципі тепе-теңдік жүйесіне әсер еткенде жүйе сол әсерді азайтатын бағытқа ығысатынын түсіндіреді."
+      },
+      {
+        section: "Физикалық химия",
+        level: "C",
+        text: "ΔG < 0 болса, процесс туралы қандай қорытынды жасауға болады?",
+        options: [
+          "Процесс өздігінен жүруге термодинамикалық қолайлы",
+          "Процесс ешқашан жүрмейді",
+          "Жүйе міндетті түрде тепе-теңдікте",
+          "Энтропия әрқашан нөлге тең",
+          "Температура өзгермейді"
+        ],
+        answer: 0,
+        explanation: "Гиббс энергиясының өзгерісі теріс болса, процесс берілген жағдайда өздігінен жүруге бейім."
+      },
+      {
+        section: "Аналитикалық химия",
+        level: "A",
+        text: "Натрий хлоридінің массалық үлесі 10% болатын 200 г ерітінді дайындау үшін қанша тұз қажет?",
+        options: [
+          "2,5 г",
+          "20 г",
+          "25 г",
+          "0,2 г",
+          "2 г"
+        ],
+        answer: 1,
+        explanation: "m(зат) = ω · m(ерітінді) / 100%. 10 · 200 / 100 = 20 г."
+      },
+      {
+        section: "Аналитикалық химия",
+        level: "B",
+        text: "pH = 3 болатын ерітінді қандай ортаға жатады?",
+        options: [
+          "Күшті сілтілік",
+          "Әлсіз сілтілік",
+          "Бейтарап",
+          "Қышқылдық",
+          "Амфотерлік"
+        ],
+        answer: 3,
+        explanation: "pH < 7 болса, орта қышқылдық болады."
+      },
+      {
+        section: "Аналитикалық химия",
+        level: "B",
+        text: "Титрлеудегі эквиваленттік нүкте нені білдіреді?",
+        options: [
+          "Индикатордың бастапқы түсін",
+          "Заттардың стехиометриялық қатынаста толық әрекеттесуін",
+          "Ерітіндінің булануын",
+          "Тұнбаның міндетті түрде түзілуін",
+          "Температураның 100°C болуы"
+        ],
+        answer: 1,
+        explanation: "Эквиваленттік нүктеде титрант пен анықталатын зат стехиометриялық мөлшерде әрекеттеседі."
+      },
+      {
+        section: "Аналитикалық химия",
+        level: "C",
+        text: "Күшті қышқыл мен күшті негізді титрлегенде эквиваленттік нүктедегі pH шамамен неге тең?",
+        options: [
+          "1",
+          "3",
+          "7",
+          "10",
+          "14"
+        ],
+        answer: 2,
+        explanation: "Күшті қышқыл мен күшті негіз толық нейтралданғанда эквиваленттік нүктеде орта шамамен бейтарап, pH ≈ 7 болады."
+      }
+    ];
+
+    const letters = ["A", "B", "C", "D", "E"];
+    const questionsBox = document.getElementById("questions");
+    const answeredCount = document.getElementById("answeredCount");
+    const progressBar = document.getElementById("progressBar");
+    const resultBox = document.getElementById("resultBox");
+
+    function renderQuestions() {
+      questionsBox.innerHTML = "";
+
+      questions.forEach((q, index) => {
+        const card = document.createElement("div");
+        card.className = "card question";
+        card.dataset.index = index;
+
+        card.innerHTML = `
+          <div class="q-top">
+            <p class="q-title">${index + 1}. ${q.text}</p>
+            <div class="q-meta">
+              <span class="section-pill">${q.section}</span>
+              <span class="level level-${q.level}">${q.level}</span>
+            </div>
+          </div>
+
+          <div class="options">
+            ${q.options.map((option, optIndex) => `
+              <label class="option" data-option="${optIndex}">
+                <input type="radio" name="q${index}" value="${optIndex}" onchange="updateProgress()">
+                <span><b>${letters[optIndex]})</b> ${option}</span>
+              </label>
+            `).join("")}
+          </div>
+
+          <div class="explanation" id="exp-${index}">
+            <b>Түсіндірме:</b> ${q.explanation}
+          </div>
+        `;
+
+        questionsBox.appendChild(card);
+      });
+    }
+
+    function updateProgress() {
+      let answered = 0;
+
+      questions.forEach((_, index) => {
+        const chosen = document.querySelector(`input[name="q${index}"]:checked`);
+        if (chosen) answered++;
+      });
+
+      answeredCount.textContent = answered;
+      progressBar.style.width = `${answered / questions.length * 100}%`;
+    }
+
+    function checkTest() {
+      let correct = 0;
+      let answered = 0;
+
+      questions.forEach((q, index) => {
+        const chosen = document.querySelector(`input[name="q${index}"]:checked`);
+        const questionCard = document.querySelector(`.question[data-index="${index}"]`);
+        const labels = questionCard.querySelectorAll("label.option");
+        const explanation = document.getElementById(`exp-${index}`);
+
+        labels.forEach(label => {
+          label.classList.remove("correct", "wrong");
+          const opt = Number(label.dataset.option);
+
+          if (opt === q.answer) {
+            label.classList.add("correct");
+          }
+        });
+
+        if (chosen) {
+          answered++;
+          const chosenValue = Number(chosen.value);
+
+          if (chosenValue === q.answer) {
+            correct++;
+          } else {
+            labels[chosenValue].classList.add("wrong");
+          }
+        }
+
+        explanation.classList.add("show");
+      });
+
+      const percent = Math.round(correct / questions.length * 100);
+      let levelText = "";
+
+      if (percent >= 85) {
+        levelText = "Өте жақсы нәтиже. Сен негізгі тақырыптарды жақсы меңгергенсің.";
+      } else if (percent >= 65) {
+        levelText = "Жақсы нәтиже, бірақ қате шыққан бөлімдерді қайта қарау керек.";
+      } else if (percent >= 45) {
+        levelText = "Орташа нәтиже. Теорияны формула және мысалмен бірге қайталау қажет.";
+      } else {
+        levelText = "Әлі дайындықты күшейту керек. Алдымен конспект пен терминдерді қайтала.";
+      }
+
+      resultBox.classList.add("show");
+      resultBox.innerHTML = `
+        <p class="score">${correct}/30</p>
+        <p><b>${percent}%</b> · Жауап берілгені: ${answered}/30</p>
+        <p class="muted">${levelText}</p>
+      `;
+
+      resultBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function showOnlyMistakes() {
+      let hasChecked = false;
+
+      questions.forEach((q, index) => {
+        const questionCard = document.querySelector(`.question[data-index="${index}"]`);
+        const chosen = document.querySelector(`input[name="q${index}"]:checked`);
+
+        if (!chosen) {
+          questionCard.style.display = "block";
+          return;
+        }
+
+        hasChecked = true;
+        const isCorrect = Number(chosen.value) === q.answer;
+        questionCard.style.display = isCorrect ? "none" : "block";
+      });
+
+      if (!hasChecked) {
+        alert("Алдымен тестке жауап бер немесе тексеру батырмасын бас.");
+      }
+    }
+
+    function resetTest() {
+      document.querySelectorAll("input[type='radio']").forEach(input => {
+        input.checked = false;
+      });
+
+      document.querySelectorAll("label.option").forEach(label => {
+        label.classList.remove("correct", "wrong");
+      });
+
+      document.querySelectorAll(".explanation").forEach(exp => {
+        exp.classList.remove("show");
+      });
+
+      document.querySelectorAll(".question").forEach(card => {
+        card.style.display = "block";
+      });
+
+      resultBox.classList.remove("show");
+      resultBox.innerHTML = "";
+      updateProgress();
+
+      window.scrollTo({
+        top: document.getElementById("test").offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+
+    renderQuestions();
+    updateProgress();
+  </script>
+</body>
+</html>
